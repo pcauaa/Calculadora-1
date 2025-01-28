@@ -1,139 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora</title>
+    <!-- Aqui começa o site -->
+    <meta charset="UTF-8"> <!-- Diz que o site usa letras normais, como acentos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Deixa o site bom em celulares -->
+    <title>Calculadora</title> <!-- Nome do site aparece na aba -->
+
     <style>
-        *{
+        /* Tira margens e espaços de tudo */
+        * {
             margin: 0;
             padding: 0;
-
         }
-        .fundo{
-            background-image: linear-gradient(45deg,rgb(10, 58, 97), rgb(99, 194, 223));
-            height: 100vh;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            text-align: center;
-
+        /* Fundo com um gradiente azul */
+        .fundo {
+            background-image: linear-gradient(45deg, rgb(10, 58, 97), rgb(99, 194, 223));
+            height: 100vh; /* Preenche a tela toda */
+            color: white; /* Letras brancas */
+            font-family: Arial, Helvetica, sans-serif; /* Escolhe uma fonte simples */
+            text-align: center; /* Centraliza o texto */
         }
-
-        .calculadora{
-            position: absolute;
-            background-color: rgba(0, 0, 0, 0.7);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) ;
-            border-radius: 15px;
-            padding: 15px ;
-
+        /* Caixa da calculadora */
+        .calculadora {
+            position: absolute; /* Coloca no centro */
+            background-color: rgba(0, 0, 0, 0.7); /* Fundo preto transparente */
+            top: 50%; /* Centraliza verticalmente */
+            left: 50%; /* Centraliza horizontalmente */
+            transform: translate(-50%, -50%); /* Ajusta para ficar bem no centro */
+            border-radius: 15px; /* Bordas arredondadas */
+            padding: 15px; /* Adiciona espaço dentro */
         }
-
-        .botao{
-            width: 50px;
-            height: 50px;
-            font-size: 25px;
-            cursor: pointer;
-            background-color: rgb(31, 31, 31);
-            border: none;
-            color: white;
-            margin: 3px;
-
+        /* Botões da calculadora */
+        .botao {
+            width: 50px; /* Largura do botão */
+            height: 50px; /* Altura do botão */
+            font-size: 25px; /* Tamanho das letras */
+            cursor: pointer; /* Mostra mãozinha no mouse */
+            background-color: rgb(31, 31, 31); /* Fundo preto */
+            border: none; /* Sem borda */
+            color: white; /* Letras brancas */
+            margin: 3px; /* Espaço entre os botões */
         }
-
-        .botao:hover{
+        /* Quando passa o mouse no botão, ele escurece */
+        .botao:hover {
             background-color: black;
         }
-        
-        #resultado{
-            width: 207px;
-            background-color: white;
-            height: 30px;
-            margin: 5px;
-            color: black;
-            text-align: right;
-            font-size: 25px;
-            padding: 5px;
+        /* Tela onde aparece o número */
+        #resultado {
+            width: 207px; /* Largura da tela */
+            background-color: white; /* Fundo branco */
+            height: 30px; /* Altura da tela */
+            margin: 5px; /* Espaço ao redor */
+            color: black; /* Letras pretas */
+            text-align: right; /* Texto alinhado à direita */
+            font-size: 25px; /* Tamanho do número */
+            padding: 5px; /* Espaço dentro da tela */
         }
-    
-
     </style>
 </head>
 <body>
+    <!-- Fundo do site -->
     <div class="fundo">
+        <!-- Nome do criador -->
         <h1>Pedro Cauã De Paiva Macedo</h1>
-    <div class="calculadora">
-        <h1>Calculadora</h1>
-        <p id="resultado"></p>
-        <table>
-            <tr>
-                <td><button class="botao" onclick="clean()">C</button></td>
-                <td><button class="botao" onclick="back()"><</button></td>
-                <td><button class="botao" onclick="insert('/')">/</button></td>
-                <td><button class="botao" onclick="insert('*')">X</button></td>
-            </tr>
 
-            <tr>
-                <td><button class="botao" onclick="insert('7')">7</button></td>
-                <td><button class="botao" onclick="insert('8')">8</button></td>
-                <td><button class="botao" onclick="insert('9')">9</button></td>
-                <td><button class="botao" onclick="insert('-')">-</button></td>
-            </tr>
-
-            <tr>
-                <td><button class="botao" onclick="insert('4')">4</button></td>
-                <td><button class="botao" onclick="insert('5')">5</button></td>
-                <td><button class="botao" onclick="insert('6')">6</button></td>
-                <td><button class="botao"onclick="insert('+')">+</button></td>
-            </tr>
-
-            <tr>
-                <td><button class="botao" onclick="insert('1')">1</button></td>
-                <td><button class="botao" onclick="insert('2')">2</button></td>
-                <td><button class="botao" onclick="insert('3')">3</button></td>
-                <td rowspan="2"><button class="botao" style="height: 105px;" onclick="calcular('=')">=</button></td>
-            </tr>
-
-            <tr>
-                <td colspan="2"><button class="botao" style="width: 105px;" onclick="insert('0')">0</button></td>
-                <td><button class="botao" onclick="insert('.')">.</button></td>
-            </tr>
-
-        </table>
+        <!-- Calculadora -->
+        <div class="calculadora">
+            <h1>Calculadora</h1>
+            <!-- Tela que mostra números -->
+            <p id="resultado"></p>
+            <!-- Botões da calculadora organizados -->
+            <table>
+                <tr>
+                    <td><button class="botao" onclick="clean()">C</button></td> <!-- Botão para limpar -->
+                    <td><button class="botao" onclick="back()"><</button></td> <!-- Apaga último número -->
+                    <td><button class="botao" onclick="insert('/')">/</button></td> <!-- Botão de divisão -->
+                    <td><button class="botao" onclick="insert('*')">X</button></td> <!-- Botão de multiplicação -->
+                </tr>
+                <tr>
+                    <!-- Botões dos números -->
+                    <td><button class="botao" onclick="insert('7')">7</button></td>
+                    <td><button class="botao" onclick="insert('8')">8</button></td>
+                    <td><button class="botao" onclick="insert('9')">9</button></td>
+                    <td><button class="botao" onclick="insert('-')">-</button></td> <!-- Botão de subtração -->
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="insert('4')">4</button></td>
+                    <td><button class="botao" onclick="insert('5')">5</button></td>
+                    <td><button class="botao" onclick="insert('6')">6</button></td>
+                    <td><button class="botao" onclick="insert('+')">+</button></td> <!-- Botão de adição -->
+                </tr>
+                <tr>
+                    <td><button class="botao" onclick="insert('1')">1</button></td>
+                    <td><button class="botao" onclick="insert('2')">2</button></td>
+                    <td><button class="botao" onclick="insert('3')">3</button></td>
+                    <!-- Botão de igual ocupa mais espaço -->
+                    <td rowspan="2"><button class="botao" style="height: 105px;" onclick="calcular()">=</button></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="botao" style="width: 105px;" onclick="insert('0')">0</button></td> <!-- Botão 0 é maior -->
+                    <td><button class="botao" onclick="insert('.')">.</button></td> <!-- Botão de ponto -->
+                </tr>
+            </table>
+        </div>
     </div>
-    </div>
+
     <script>
-        function insert(num)
-        {
-           var numero = document.getElementById('resultado').innerHTML;
-           document.getElementById('resultado').innerHTML = numero + num;
+        // Adiciona números na tela
+        function insert(num) {
+            var numero = document.getElementById('resultado').innerHTML; // Pega o que está na tela
+            document.getElementById('resultado').innerHTML = numero + num; // Adiciona o número ou sinal
         }
 
-        function clean()
-        {
-            document.getElementById('resultado').innerHTML = "";
+        // Limpa a tela
+        function clean() {
+            document.getElementById('resultado').innerHTML = ""; // Coloca nada na tela
         }
 
-        function back()
-        {
-            var resultado = document.getElementById('resultado').innerHTML;
-            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1)
+        // Apaga o último número ou sinal
+        function back() {
+            var resultado = document.getElementById('resultado').innerHTML; // Pega o que está na tela
+            document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length - 1); // Remove o último
         }
 
-        function calcular()
-        {
-            var resultado = document.getElementById('resultado').innerHTML;
-            if(resultado)
-        {
-            document.getElementById('resultado').innerHTML = eval(resultado);
-        }
-
-        else
-        {
-            document.getElementById('resultado').innerHTML = "Nada";
-
-        }
+        // Faz a conta
+        function calcular() {
+            var resultado = document.getElementById('resultado').innerHTML; // Pega o que está na tela
+            if (resultado) { // Se tiver algo na tela
+                document.getElementById('resultado').innerHTML = eval(resultado); // Faz a conta
+            } else {
+                document.getElementById('resultado').innerHTML = "Nada"; // Mostra erro se a tela estiver vazia
+            }
         }
     </script>
 </body>
