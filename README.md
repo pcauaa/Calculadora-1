@@ -1,2 +1,2 @@
-# Calculadora-1
+# Calculadora
 Meu projeto sobre uma calculadora
